@@ -34,23 +34,78 @@
     [_playersArray addObject:player];
     
     player = [Player new];
-    player.name = @"Josef Hilbert";
+    player.name = @"Aquaman";
+    [_playersArray addObject:player];
+    
+    player = [Player new];
+    player.name = @"Tom Anderson";
+    [_playersArray addObject:player];
+    
+    player = [Player new];
+    player.name = @"Billy Blanks";
+    [_playersArray addObject:player];
+    
+    player = [Player new];
+    player.name = @"John Madden";
+    [_playersArray addObject:player];
+    
+    player = [Player new];
+    player.name = @"Cher";
+    [_playersArray addObject:player];
+    
+    player = [Player new];
+    player.name = @"Aaron Riedel";
+    [_playersArray addObject:player];
+    
+    player = [Player new];
+    player.name = @"Charlotte 'Charlie' Riedel";
     [_playersArray addObject:player];
     
     PropBet *testProp = [PropBet new];
     testProp.title = @"Super Bowl Winner";
-    testProp.detail = @"The Vikings or the Browns?";
+    testProp.detail = @"Will the Vikings win the Super Bowl?";
     _propBetsArray = [NSMutableArray arrayWithObject:testProp];
     
     testProp = [PropBet new];
-    testProp.title = @"Total rushing yards";
-    testProp.detail = @"Over/under 175 yards";
+    testProp.title = @"Christian Ponder pass yards";
+    testProp.detail = @"Over/under 25 total passing yards";
     [_propBetsArray addObject:testProp];
     
     testProp = [PropBet new];
     testProp.title = @"Adrian Peterson TDs";
-    testProp.detail = @"Will AP score 8 TDs?";
+    testProp.detail = @"Will AP score more than 8 TDs?";
     [_propBetsArray addObject:testProp];
+    
+    testProp = [PropBet new];
+    testProp.title = @"Total Turnovers";
+    testProp.detail = @"3 or more total TOs?";
+    [_propBetsArray addObject:testProp];
+    
+    testProp = [PropBet new];
+    testProp.title = @"TDs in the 2nd quarter";
+    testProp.detail = @"2 or more TDs in the 2nd quarter?";
+    [_propBetsArray addObject:testProp];
+    
+    testProp = [PropBet new];
+    testProp.title = @"Wild card plays";
+    testProp.detail = @"Will there be a safety, blocked kick, onside kick, or TD on a TO?";
+    [_propBetsArray addObject:testProp];
+    
+    testProp = [PropBet new];
+    testProp.title = @"How many Coors Light commercials will be played?";
+    testProp.detail = @"7 or more?";
+    [_propBetsArray addObject:testProp];
+    
+    testProp = [PropBet new];
+    testProp.title = @"Groundhog";
+    testProp.detail = @"Will the groundhog see its shadow?";
+    [_propBetsArray addObject:testProp];
+    
+    testProp = [PropBet new];
+    testProp.title = @"Wood chuck";
+    testProp.detail = @"If a wood chuck could chuck wood, would it chuck more than 6?";
+    [_propBetsArray addObject:testProp];
+    
 
 }
 
@@ -75,6 +130,9 @@
     {
         PropBetViewController *vc = segue.destinationViewController;
         vc.playerArray = self.playersArray;
+        NSIndexPath *indexPath = [propTableView indexPathForSelectedRow];
+        vc.propBet = [_propBetsArray objectAtIndex:indexPath.row];
+        vc.navigationItem.title = vc.propBet.title;
     }
 }
 

@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		6D2DD163188E2A72007EA936 /* PlayerListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D2DD162188E2A72007EA936 /* PlayerListViewController.m */; };
 		6D2DD166188E36AF007EA936 /* PropBetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D2DD165188E36AF007EA936 /* PropBetViewController.m */; };
+		6D2DD168188E3D16007EA936 /* ThumbsUpButton.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6D2DD167188E3D16007EA936 /* ThumbsUpButton.jpg */; };
+		6D2DD16C188E4496007EA936 /* ThumbsDownButton.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6D2DD16B188E4496007EA936 /* ThumbsDownButton.jpg */; };
 		6D748F51188B920C00DC5FFC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D748F50188B920C00DC5FFC /* Foundation.framework */; };
 		6D748F53188B920C00DC5FFC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D748F52188B920C00DC5FFC /* CoreGraphics.framework */; };
 		6D748F55188B920C00DC5FFC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D748F54188B920C00DC5FFC /* UIKit.framework */; };
@@ -44,6 +46,8 @@
 		6D2DD162188E2A72007EA936 /* PlayerListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerListViewController.m; sourceTree = "<group>"; };
 		6D2DD164188E36AF007EA936 /* PropBetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PropBetViewController.h; sourceTree = "<group>"; };
 		6D2DD165188E36AF007EA936 /* PropBetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PropBetViewController.m; sourceTree = "<group>"; };
+		6D2DD167188E3D16007EA936 /* ThumbsUpButton.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ThumbsUpButton.jpg; sourceTree = "<group>"; };
+		6D2DD16B188E4496007EA936 /* ThumbsDownButton.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ThumbsDownButton.jpg; sourceTree = "<group>"; };
 		6D748F4D188B920C00DC5FFC /* PropBet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PropBet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D748F50188B920C00DC5FFC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6D748F52188B920C00DC5FFC /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -183,6 +187,8 @@
 		6D748F87188B924B00DC5FFC /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				6D2DD167188E3D16007EA936 /* ThumbsUpButton.jpg */,
+				6D2DD16B188E4496007EA936 /* ThumbsDownButton.jpg */,
 				6D748F85188B924300DC5FFC /* NFL.jpg */,
 			);
 			name = Images;
@@ -264,7 +270,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6D2DD16C188E4496007EA936 /* ThumbsDownButton.jpg in Resources */,
 				6D748F69188B920C00DC5FFC /* Images.xcassets in Resources */,
+				6D2DD168188E3D16007EA936 /* ThumbsUpButton.jpg in Resources */,
 				6D748F5B188B920C00DC5FFC /* InfoPlist.strings in Resources */,
 				6D748F86188B924300DC5FFC /* NFL.jpg in Resources */,
 				6D748F64188B920C00DC5FFC /* Main.storyboard in Resources */,
