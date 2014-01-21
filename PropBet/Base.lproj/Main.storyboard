@@ -4,6 +4,66 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
     <scenes>
+        <!--Player List View Controller - The Players-->
+        <scene sceneID="cwP-Li-xAG">
+            <objects>
+                <viewController id="beQ-1h-u1j" customClass="PlayerListViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Xa8-Os-xnD"/>
+                        <viewControllerLayoutGuide type="bottom" id="0K1-q7-zaC"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="GpA-mu-FjI">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Player name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="x7A-nX-jxt">
+                                <rect key="frame" x="20" y="76" width="197" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aun-bw-JN5">
+                                <rect key="frame" x="225" y="76" width="75" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Add Player">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="onAddPlayerButtonPressed:" destination="beQ-1h-u1j" eventType="touchUpInside" id="k2c-lZ-eI1"/>
+                                </connections>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="fKW-VT-AYM">
+                                <rect key="frame" x="0.0" y="114" width="320" height="454"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PlayerCell" id="Jof-M4-5Cv">
+                                        <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Jof-M4-5Cv">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="beQ-1h-u1j" id="Pci-da-z4R"/>
+                                    <outlet property="delegate" destination="beQ-1h-u1j" id="TcY-OB-iQs"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="The Players" id="M6f-n3-04U"/>
+                    <connections>
+                        <outlet property="playerTableView" destination="fKW-VT-AYM" id="v6o-sR-SBL"/>
+                        <outlet property="playerTextField" destination="x7A-nX-jxt" id="vnI-gp-htZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="b37-7M-Ece" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1172" y="-654"/>
+        </scene>
         <!--View Controller - Prop Better-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
@@ -21,11 +81,11 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PropCellID" textLabel="59C-Zt-URI" detailTextLabel="mVh-xM-YUK" imageView="eDg-z3-Xwz" style="IBUITableViewCellStyleSubtitle" id="qDd-sr-FOS">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PropCellID" textLabel="59C-Zt-URI" detailTextLabel="mVh-xM-YUK" imageView="eDg-z3-Xwz" style="IBUITableViewCellStyleSubtitle" id="qDd-sr-FOS">
                                         <rect key="frame" x="0.0" y="86" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qDd-sr-FOS" id="F6E-0J-cUt">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="59C-Zt-URI">
@@ -48,6 +108,9 @@
                                                 </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="1Gi-TQ-tbX" kind="push" identifier="PropBetSegue" id="X0b-wN-8BQ"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -59,9 +122,14 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Prop Better" id="MCE-ln-uKi">
+                        <barButtonItem key="leftBarButtonItem" title="Players" id="3kC-tn-ybg">
+                            <connections>
+                                <segue destination="beQ-1h-u1j" kind="push" identifier="NewPlayerSegue" id="cT1-FF-c7c"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="SWL-oX-WsQ">
                             <connections>
-                                <segue destination="WAI-BW-rra" kind="push" id="X57-0T-cDD"/>
+                                <segue destination="WAI-BW-rra" kind="push" identifier="NewPropSegue" id="X57-0T-cDD"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -72,6 +140,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="615" y="109"/>
+        </scene>
+        <!--Prop Bet View Controller-->
+        <scene sceneID="3dE-5c-571">
+            <objects>
+                <viewController id="1Gi-TQ-tbX" customClass="PropBetViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="LoD-zf-VT7"/>
+                        <viewControllerLayoutGuide type="bottom" id="D3E-sb-Md2"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="voW-is-fes">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Aul-HA-zzH"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Sae-uC-zi5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1172" y="109"/>
         </scene>
         <!--New Prop Bet View Controller - New Prop Bet-->
         <scene sceneID="NaC-gU-x9T">
@@ -131,7 +218,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JTl-Ai-ffm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1086" y="109"/>
+            <point key="canvasLocation" x="1172" y="849"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Z4u-2x-wMT">

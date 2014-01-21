@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6D2DD163188E2A72007EA936 /* PlayerListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D2DD162188E2A72007EA936 /* PlayerListViewController.m */; };
+		6D2DD166188E36AF007EA936 /* PropBetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D2DD165188E36AF007EA936 /* PropBetViewController.m */; };
 		6D748F51188B920C00DC5FFC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D748F50188B920C00DC5FFC /* Foundation.framework */; };
 		6D748F53188B920C00DC5FFC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D748F52188B920C00DC5FFC /* CoreGraphics.framework */; };
 		6D748F55188B920C00DC5FFC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D748F54188B920C00DC5FFC /* UIKit.framework */; };
@@ -38,6 +40,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6D2DD161188E2A72007EA936 /* PlayerListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerListViewController.h; sourceTree = "<group>"; };
+		6D2DD162188E2A72007EA936 /* PlayerListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerListViewController.m; sourceTree = "<group>"; };
+		6D2DD164188E36AF007EA936 /* PropBetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PropBetViewController.h; sourceTree = "<group>"; };
+		6D2DD165188E36AF007EA936 /* PropBetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PropBetViewController.m; sourceTree = "<group>"; };
 		6D748F4D188B920C00DC5FFC /* PropBet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PropBet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D748F50188B920C00DC5FFC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6D748F52188B920C00DC5FFC /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -130,6 +136,10 @@
 				6D748F66188B920C00DC5FFC /* ViewController.m */,
 				6D748F8E188B927D00DC5FFC /* NewPropBetViewController.h */,
 				6D748F8F188B927D00DC5FFC /* NewPropBetViewController.m */,
+				6D2DD161188E2A72007EA936 /* PlayerListViewController.h */,
+				6D2DD162188E2A72007EA936 /* PlayerListViewController.m */,
+				6D2DD164188E36AF007EA936 /* PropBetViewController.h */,
+				6D2DD165188E36AF007EA936 /* PropBetViewController.m */,
 				6D748F88188B926100DC5FFC /* Player.h */,
 				6D748F89188B926100DC5FFC /* Player.m */,
 				6D748F8B188B926B00DC5FFC /* PropBet.h */,
@@ -276,10 +286,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6D2DD163188E2A72007EA936 /* PlayerListViewController.m in Sources */,
 				6D748F90188B927D00DC5FFC /* NewPropBetViewController.m in Sources */,
 				6D748F8A188B926100DC5FFC /* Player.m in Sources */,
 				6D748F8D188B926B00DC5FFC /* PropBet.m in Sources */,
 				6D748F67188B920C00DC5FFC /* ViewController.m in Sources */,
+				6D2DD166188E36AF007EA936 /* PropBetViewController.m in Sources */,
 				6D748F61188B920C00DC5FFC /* AppDelegate.m in Sources */,
 				6D748F5D188B920C00DC5FFC /* main.m in Sources */,
 			);
@@ -490,6 +502,7 @@
 				6D748F81188B920C00DC5FFC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6D748F82188B920C00DC5FFC /* Build configuration list for PBXNativeTarget "PropBetTests" */ = {
 			isa = XCConfigurationList;
@@ -498,6 +511,7 @@
 				6D748F84188B920C00DC5FFC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

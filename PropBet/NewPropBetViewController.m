@@ -48,6 +48,9 @@
     }
 }
 
+
+#pragma mark UIAlertViewDelegate
+
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if (buttonIndex == 1) {
@@ -57,8 +60,8 @@
     propBet.title = propTextField.text;
     propBet.detail = detailTextField.text;
     [_propBetArray addObject:propBet];
-    [propTextField endEditing:YES];
-    [detailTextField endEditing:YES];
+    [propTextField resignFirstResponder];
+    [detailTextField resignFirstResponder];
     propTextField.text = @"";
     detailTextField.text = @"";
     }

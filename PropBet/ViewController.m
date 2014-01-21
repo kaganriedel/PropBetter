@@ -8,11 +8,13 @@
 
 #import "ViewController.h"
 #import "NewPropBetViewController.h"
+#import "PlayerListViewController.h"
+#import "PropBetViewController.h"
 #import "Player.h"
 #import "PropBet.h"
 
 
-@interface ViewController () <UITableViewDataSource, UITableViewDelegate, UIAlertViewDelegate>
+@interface ViewController () <UITableViewDataSource, UITableViewDelegate>
 {
     __weak IBOutlet UITableView *propTableView;
 }
@@ -25,6 +27,16 @@
 {
     [super viewDidLoad];
     
+    _playersArray = [NSMutableArray new];
+    
+    Player *player = [Player new];
+    player.name = @"Kagan Riedel";
+    [_playersArray addObject:player];
+    
+    player = [Player new];
+    player.name = @"Josef Hilbert";
+    [_playersArray addObject:player];
+    
     PropBet *testProp = [PropBet new];
     testProp.title = @"Super Bowl Winner";
     testProp.detail = @"The Vikings or the Browns?";
@@ -36,8 +48,8 @@
     [_propBetsArray addObject:testProp];
     
     testProp = [PropBet new];
-    testProp.title = @"Adrian Peterson TD";
-    testProp.detail = @"Will AP score a TD?";
+    testProp.title = @"Adrian Peterson TDs";
+    testProp.detail = @"Will AP score 8 TDs?";
     [_propBetsArray addObject:testProp];
 
 }
@@ -51,10 +63,20 @@
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    NewPropBetViewController *vc = segue.destinationViewController;
-    vc.propBetArray = self.propBetsArray;
+    if ([segue.identifier isEqualToString:@"NewPropSegue"])
+    {
+        NewPropBetViewController *vc = segue.destinationViewController;
+        vc.propBetArray = self.propBetsArray;
+    } else if ([segue.identifier isEqualToString:@"NewPlayerSegue"])
+    {
+        PlayerListViewController *vc = segue.destinationViewController;
+        vc.playersArray = self.playersArray;
+    } else if ([segue.identifier isEqualToString:@"PropBetSegue"])
+    {
+        PropBetViewController *vc = segue.destinationViewController;
+        vc.playerArray = self.playersArray;
+    }
 }
-
 
 
 
@@ -72,8 +94,6 @@
     cell.detailTextLabel.text = propBet.detail;
     
     return cell;
-                             
-                             
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -83,23 +103,14 @@
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Delete" message:@"Are you sure?" delegate:self cancelButtonTitle:@"Oops, no thanks" otherButtonTitles:@"Delete", nil];
-        [alert show];
-    }
-}
-
-#pragma mark UIAlertViewDelegate
-
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    if (buttonIndex == 1)
+    if (editingStyle == UITableViewCellEditingStyleDelete)
     {
-        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:alertView.tag inSection:0];
         [_propBetsArray removeObjectAtIndex:indexPath.row];
         [propTableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
     }
 }
+
+
 
 
 @end
