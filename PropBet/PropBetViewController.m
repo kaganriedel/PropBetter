@@ -26,8 +26,6 @@
 {
     [super viewDidLoad];
 	detailsLabel.text = _propBet.detail;
-    _propBet.yays = [NSMutableArray new];
-    _propBet.nays = [NSMutableArray new];
 }
 
 
@@ -46,30 +44,40 @@
     Player *player = [Player new];
     player = [_playerArray objectAtIndex:indexPath.row];
     cell.textLabel.text = player.name;
+    if ([_propBet.yays containsObject:player])
+    {
+        cell.imageView.image = [UIImage imageNamed:@"ThumbsUpButton.jpg"];
+    } else if ([_propBet.nays containsObject:player])
+    {
+        cell.imageView.image = [UIImage imageNamed:@"ThumbsDownButton.jpg"];
+    } else
+    {
+        cell.imageView.image = nil;
+    }
     
     return cell;
 }
 
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if ([tableView cellForRowAtIndexPath:indexPath].imageView.image == nil)
-    {
-        [tableView cellForRowAtIndexPath:indexPath].imageView.image = [UIImage imageNamed:@"ThumbsUpButton.jpg"];
-        [_propBet.yays addObject:[_playerArray objectAtIndex:indexPath.row]];
-    }
-    else if ([tableView cellForRowAtIndexPath:indexPath].imageView.image == [UIImage imageNamed:@"ThumbsUpButton.jpg"])
-    {
-        [tableView cellForRowAtIndexPath:indexPath].imageView.image = [UIImage imageNamed:@"ThumbsDownButton.jpg"];
-        [_propBet.yays removeObject:[_playerArray objectAtIndex:indexPath.row]];
-        [_propBet.nays addObject:[_playerArray objectAtIndex:indexPath.row]];
-
-    }
-    else if ([tableView cellForRowAtIndexPath:indexPath].imageView.image == [UIImage imageNamed:@"ThumbsDownButton.jpg"])
-    {
-        [tableView cellForRowAtIndexPath:indexPath].imageView.image = nil;
-        [_propBet.nays removeObject:[_playerArray objectAtIndex:indexPath.row]];
-    }
-    [tableView reloadData];
-}
+//-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+//{
+//    if ([tableView cellForRowAtIndexPath:indexPath].imageView.image == nil)
+//    {
+//        [tableView cellForRowAtIndexPath:indexPath].imageView.image = [UIImage imageNamed:@"ThumbsUpButton.jpg"];
+//        [_propBet.yays addObject:[_playerArray objectAtIndex:indexPath.row]];
+//    }
+//    else if ([tableView cellForRowAtIndexPath:indexPath].imageView.image == [UIImage imageNamed:@"ThumbsUpButton.jpg"])
+//    {
+//        [tableView cellForRowAtIndexPath:indexPath].imageView.image = [UIImage imageNamed:@"ThumbsDownButton.jpg"];
+//        [_propBet.yays removeObject:[_playerArray objectAtIndex:indexPath.row]];
+//        [_propBet.nays addObject:[_playerArray objectAtIndex:indexPath.row]];
+//
+//    }
+//    else if ([tableView cellForRowAtIndexPath:indexPath].imageView.image == [UIImage imageNamed:@"ThumbsDownButton.jpg"])
+//    {
+//        [tableView cellForRowAtIndexPath:indexPath].imageView.image = nil;
+//        [_propBet.nays removeObject:[_playerArray objectAtIndex:indexPath.row]];
+//    }
+//    [tableView reloadData];
+//}
 
 @end

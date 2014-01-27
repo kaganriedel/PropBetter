@@ -11,6 +11,7 @@
 		6D2DD166188E36AF007EA936 /* PropBetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D2DD165188E36AF007EA936 /* PropBetViewController.m */; };
 		6D2DD168188E3D16007EA936 /* ThumbsUpButton.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6D2DD167188E3D16007EA936 /* ThumbsUpButton.jpg */; };
 		6D2DD16C188E4496007EA936 /* ThumbsDownButton.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6D2DD16B188E4496007EA936 /* ThumbsDownButton.jpg */; };
+		6D58D0D7189600EB00A47E5D /* PlayerBetsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D58D0D6189600EB00A47E5D /* PlayerBetsViewController.m */; };
 		6D748F51188B920C00DC5FFC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D748F50188B920C00DC5FFC /* Foundation.framework */; };
 		6D748F53188B920C00DC5FFC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D748F52188B920C00DC5FFC /* CoreGraphics.framework */; };
 		6D748F55188B920C00DC5FFC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D748F54188B920C00DC5FFC /* UIKit.framework */; };
@@ -48,6 +49,8 @@
 		6D2DD165188E36AF007EA936 /* PropBetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PropBetViewController.m; sourceTree = "<group>"; };
 		6D2DD167188E3D16007EA936 /* ThumbsUpButton.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ThumbsUpButton.jpg; sourceTree = "<group>"; };
 		6D2DD16B188E4496007EA936 /* ThumbsDownButton.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ThumbsDownButton.jpg; sourceTree = "<group>"; };
+		6D58D0D5189600EB00A47E5D /* PlayerBetsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerBetsViewController.h; sourceTree = "<group>"; };
+		6D58D0D6189600EB00A47E5D /* PlayerBetsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerBetsViewController.m; sourceTree = "<group>"; };
 		6D748F4D188B920C00DC5FFC /* PropBet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PropBet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D748F50188B920C00DC5FFC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6D748F52188B920C00DC5FFC /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -142,6 +145,8 @@
 				6D748F8F188B927D00DC5FFC /* NewPropBetViewController.m */,
 				6D2DD161188E2A72007EA936 /* PlayerListViewController.h */,
 				6D2DD162188E2A72007EA936 /* PlayerListViewController.m */,
+				6D58D0D5189600EB00A47E5D /* PlayerBetsViewController.h */,
+				6D58D0D6189600EB00A47E5D /* PlayerBetsViewController.m */,
 				6D2DD164188E36AF007EA936 /* PropBetViewController.h */,
 				6D2DD165188E36AF007EA936 /* PropBetViewController.m */,
 				6D748F88188B926100DC5FFC /* Player.h */,
@@ -302,6 +307,7 @@
 				6D2DD166188E36AF007EA936 /* PropBetViewController.m in Sources */,
 				6D748F61188B920C00DC5FFC /* AppDelegate.m in Sources */,
 				6D748F5D188B920C00DC5FFC /* main.m in Sources */,
+				6D58D0D7189600EB00A47E5D /* PlayerBetsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

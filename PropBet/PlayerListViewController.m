@@ -7,6 +7,7 @@
 //
 
 #import "PlayerListViewController.h"
+#import "PlayerBetsViewController.h"
 #import "Player.h"
 
 @interface PlayerListViewController () <UITableViewDataSource, UITableViewDelegate>
@@ -25,7 +26,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
 }
 
 - (IBAction)onAddPlayerButtonPressed:(id)sender
@@ -41,6 +41,19 @@
         [playerTextField resignFirstResponder];
     }
 }
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    PlayerBetsViewController *vc = segue.destinationViewController;
+    vc.propBetsArray = _propBetsArray;
+    
+    NSIndexPath *indexPath = [playerTableView indexPathForSelectedRow];
+    vc.player = _playersArray[indexPath.row];
+    UITableViewCell *cell = [playerTableView cellForRowAtIndexPath:indexPath];
+    vc.navigationItem.title = cell.textLabel.text;
+}
+
+
 
 #pragma mark UITableViewDelegate & DataSource
 

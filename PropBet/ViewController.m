@@ -64,46 +64,64 @@
     PropBet *testProp = [PropBet new];
     testProp.title = @"Super Bowl Winner";
     testProp.detail = @"Will the Vikings win the Super Bowl?";
+    testProp.yays = [NSMutableArray new];
+    testProp.nays = [NSMutableArray new];
     _propBetsArray = [NSMutableArray arrayWithObject:testProp];
     
     testProp = [PropBet new];
     testProp.title = @"Christian Ponder pass yards";
     testProp.detail = @"Over/under 25 total passing yards";
+    testProp.yays = [NSMutableArray new];
+    testProp.nays = [NSMutableArray new];
     [_propBetsArray addObject:testProp];
     
     testProp = [PropBet new];
     testProp.title = @"Adrian Peterson TDs";
     testProp.detail = @"Will AP score more than 8 TDs?";
+    testProp.yays = [NSMutableArray new];
+    testProp.nays = [NSMutableArray new];
     [_propBetsArray addObject:testProp];
     
     testProp = [PropBet new];
     testProp.title = @"Total Turnovers";
     testProp.detail = @"3 or more total TOs?";
+    testProp.yays = [NSMutableArray new];
+    testProp.nays = [NSMutableArray new];
     [_propBetsArray addObject:testProp];
     
     testProp = [PropBet new];
     testProp.title = @"TDs in the 2nd quarter";
     testProp.detail = @"2 or more TDs in the 2nd quarter?";
+    testProp.yays = [NSMutableArray new];
+    testProp.nays = [NSMutableArray new];
     [_propBetsArray addObject:testProp];
     
     testProp = [PropBet new];
     testProp.title = @"Wild card plays";
     testProp.detail = @"Will there be a safety, blocked kick, onside kick, or TD on a TO?";
+    testProp.yays = [NSMutableArray new];
+    testProp.nays = [NSMutableArray new];
     [_propBetsArray addObject:testProp];
     
     testProp = [PropBet new];
     testProp.title = @"How many Coors Light commercials will be played?";
     testProp.detail = @"7 or more?";
+    testProp.yays = [NSMutableArray new];
+    testProp.nays = [NSMutableArray new];
     [_propBetsArray addObject:testProp];
     
     testProp = [PropBet new];
     testProp.title = @"Groundhog";
     testProp.detail = @"Will the groundhog see its shadow?";
+    testProp.yays = [NSMutableArray new];
+    testProp.nays = [NSMutableArray new];
     [_propBetsArray addObject:testProp];
     
     testProp = [PropBet new];
     testProp.title = @"Wood chuck";
     testProp.detail = @"If a wood chuck could chuck wood, would it chuck more than 6?";
+    testProp.yays = [NSMutableArray new];
+    testProp.nays = [NSMutableArray new];
     [_propBetsArray addObject:testProp];
     
 
@@ -122,10 +140,11 @@
     {
         NewPropBetViewController *vc = segue.destinationViewController;
         vc.propBetArray = self.propBetsArray;
-    } else if ([segue.identifier isEqualToString:@"NewPlayerSegue"])
+    } else if ([segue.identifier isEqualToString:@"PlayersSegue"])
     {
         PlayerListViewController *vc = segue.destinationViewController;
         vc.playersArray = self.playersArray;
+        vc.propBetsArray = self.propBetsArray;
     } else if ([segue.identifier isEqualToString:@"PropBetSegue"])
     {
         PropBetViewController *vc = segue.destinationViewController;
