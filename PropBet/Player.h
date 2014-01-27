@@ -13,6 +13,6 @@
 @property NSString *name;
 @property NSString *nickname;
 @property UIColor *color;
-@property int points;
+@property int score;
 
 @end

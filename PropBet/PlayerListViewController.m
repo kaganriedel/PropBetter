@@ -62,6 +62,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PlayerCell"];
     Player *player = [_playersArray objectAtIndex:indexPath.row];
     cell.textLabel.text = player.name;
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"Score: %i", player.score];
     
     return cell;
 }

@@ -37,12 +37,28 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PlayerCell" id="Jof-M4-5Cv">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PlayerCell" textLabel="pV0-QT-OuX" detailTextLabel="JS0-wJ-G3q" style="IBUITableViewCellStyleValue1" id="Jof-M4-5Cv">
                                         <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Jof-M4-5Cv" id="oKR-0V-tLg">
                                             <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="pV0-QT-OuX">
+                                                    <rect key="frame" x="15" y="11" width="33" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="JS0-wJ-G3q">
+                                                    <rect key="frame" x="226" y="11" width="59" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
                                         </tableViewCellContentView>
                                         <connections>
                                             <segue destination="sSf-ox-6Ws" kind="push" identifier="PlayerBetsSegue" id="vQh-ON-jeh"/>
@@ -67,7 +83,7 @@
             </objects>
             <point key="canvasLocation" x="1172" y="-654"/>
         </scene>
-        <!--Player Bets View Controller - Prop Bets-->
+        <!--Player Bets View Controller - Player's Prop Bets-->
         <scene sceneID="Rmz-bP-gGr">
             <objects>
                 <viewController id="sSf-ox-6Ws" customClass="PlayerBetsViewController" sceneMemberID="viewController">
@@ -117,7 +133,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Prop Bets" id="6Qy-x5-weg"/>
+                    <navigationItem key="navigationItem" title="Player's Prop Bets" id="6Qy-x5-weg"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0cK-ro-Vhg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -200,7 +216,7 @@
             </objects>
             <point key="canvasLocation" x="615" y="109"/>
         </scene>
-        <!--Prop Bet View Controller-->
+        <!--Prop Bet View Controller - Prop Bet-->
         <scene sceneID="3dE-5c-571">
             <objects>
                 <viewController id="1Gi-TQ-tbX" customClass="PropBetViewController" sceneMemberID="viewController">
@@ -217,13 +233,16 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PlayerCell" id="X0k-WO-nlZ">
+                                    <tableViewCell userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PlayerCell" id="X0k-WO-nlZ">
                                         <rect key="frame" x="0.0" y="86" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="X0k-WO-nlZ" id="749-DB-FZ9">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
+                                        <accessibility key="accessibilityConfiguration">
+                                            <accessibilityTraits key="traits" none="YES" notEnabled="YES"/>
+                                        </accessibility>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -241,10 +260,25 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Aul-HA-zzH"/>
+                    <navigationItem key="navigationItem" title="Prop Bet" id="Aul-HA-zzH">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="qa1-0o-s5K">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="3AD-Gc-gWd">
+                                <rect key="frame" x="233" y="5" width="71" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="onWinnerButtonPressed:" destination="1Gi-TQ-tbX" eventType="touchUpInside" id="aON-GM-Ye2"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="detailsLabel" destination="8Hu-es-Bng" id="xO0-XR-8eV"/>
                         <outlet property="playersTableView" destination="ASb-8H-wNz" id="7wd-VO-gE2"/>
+                        <outlet property="winnerButton" destination="3AD-Gc-gWd" id="9wv-PZ-zzf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sae-uC-zi5" userLabel="First Responder" sceneMemberID="firstResponder"/>

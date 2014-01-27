@@ -14,5 +14,6 @@
 @property NSString *detail;
 @property NSMutableArray *yays;
 @property NSMutableArray *nays;
+@property BOOL hasBeenCalculated;
 
 @end

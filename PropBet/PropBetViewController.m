@@ -9,10 +9,11 @@
 #import "PropBetViewController.h"
 #import "Player.h"
 
-@interface PropBetViewController () <UITableViewDelegate, UITableViewDataSource>
+@interface PropBetViewController () <UITableViewDelegate, UITableViewDataSource, UIAlertViewDelegate>
 {
     __weak IBOutlet UILabel *detailsLabel;
     __weak IBOutlet UITableView *playersTableView;
+    __weak IBOutlet UIButton *winnerButton;
     
 }
 
@@ -26,9 +27,45 @@
 {
     [super viewDidLoad];
 	detailsLabel.text = _propBet.detail;
+    if (_propBet.hasBeenCalculated == YES)
+    {
+        winnerButton.userInteractionEnabled = NO;
+    }
 }
 
+- (IBAction)onWinnerButtonPressed:(id)sender
+{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:_propBet.title message:@"Who won?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Over", @"Under", nil];
+    [alert show];
+    winnerButton.userInteractionEnabled = NO;
+}
 
+-(void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 0) //Cancel
+    {
+        winnerButton.userInteractionEnabled = YES;
+    }
+    else if (buttonIndex == 1) //Over
+    {
+        for (Player *player in _propBet.yays)
+        {
+            player.score++;
+        }
+        _propBet.hasBeenCalculated = YES;
+
+    }
+    else if (buttonIndex == 2) //Under
+    {
+        for (Player *player in _propBet.nays)
+        {
+            player.score++;
+        }
+        _propBet.hasBeenCalculated = YES;
+    }
+}
+
+// iterate through propBets yays checking for players. for all the players that won, add 1 point.
 
 #pragma mark UITableViewDelegate & DataSource
 
@@ -58,26 +95,6 @@
     return cell;
 }
 
-//-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    if ([tableView cellForRowAtIndexPath:indexPath].imageView.image == nil)
-//    {
-//        [tableView cellForRowAtIndexPath:indexPath].imageView.image = [UIImage imageNamed:@"ThumbsUpButton.jpg"];
-//        [_propBet.yays addObject:[_playerArray objectAtIndex:indexPath.row]];
-//    }
-//    else if ([tableView cellForRowAtIndexPath:indexPath].imageView.image == [UIImage imageNamed:@"ThumbsUpButton.jpg"])
-//    {
-//        [tableView cellForRowAtIndexPath:indexPath].imageView.image = [UIImage imageNamed:@"ThumbsDownButton.jpg"];
-//        [_propBet.yays removeObject:[_playerArray objectAtIndex:indexPath.row]];
-//        [_propBet.nays addObject:[_playerArray objectAtIndex:indexPath.row]];
-//
-//    }
-//    else if ([tableView cellForRowAtIndexPath:indexPath].imageView.image == [UIImage imageNamed:@"ThumbsDownButton.jpg"])
-//    {
-//        [tableView cellForRowAtIndexPath:indexPath].imageView.image = nil;
-//        [_propBet.nays removeObject:[_playerArray objectAtIndex:indexPath.row]];
-//    }
-//    [tableView reloadData];
-//}
+
 
 @end

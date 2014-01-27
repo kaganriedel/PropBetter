@@ -13,14 +13,11 @@
     __weak IBOutlet UITextField *propTextField;
     __weak IBOutlet UITextField *detailTextField;
     PropBet *propBet;
-    
-    
 }
 
 @end
 
 @implementation NewPropBetViewController
-
 
 - (void)viewDidLoad
 {
@@ -48,29 +45,23 @@
     }
 }
 
-
 #pragma mark UIAlertViewDelegate
 
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if (buttonIndex == 1) {
-        
-    
-    propBet = [PropBet new];
-    propBet.title = propTextField.text;
-    propBet.detail = detailTextField.text;
-    [_propBetArray addObject:propBet];
-    [propTextField resignFirstResponder];
-    [detailTextField resignFirstResponder];
-    propTextField.text = @"";
-    detailTextField.text = @"";
+        propBet = [PropBet new];
+        propBet.title = propTextField.text;
+        propBet.detail = detailTextField.text;
+        propBet.yays = [NSMutableArray new];
+        propBet.nays = [NSMutableArray new];
+        [_propBetArray addObject:propBet];
+        [propTextField resignFirstResponder];
+        [detailTextField resignFirstResponder];
+        propTextField.text = @"";
+        detailTextField.text = @"";
     }
 }
-
-
-
-
-
 
 
 
