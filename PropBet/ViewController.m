@@ -14,9 +14,12 @@
 #import "PropBet.h"
 
 
-@interface ViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface ViewController () <UITableViewDataSource, UITableViewDelegate, UIAlertViewDelegate>
 {
     __weak IBOutlet UITableView *propTableView;
+    __weak IBOutlet UIButton *gameOnButton;
+    __weak IBOutlet UILabel *goodLuckLabel;
+    __weak IBOutlet UIButton *newPropBetButton;
 }
 
 @end
@@ -26,6 +29,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     
     _playersArray = [NSMutableArray new];
     
@@ -69,7 +73,7 @@
     _propBetsArray = [NSMutableArray arrayWithObject:testProp];
     
     testProp = [PropBet new];
-    testProp.title = @"Christian Ponder pass yards";
+    testProp.title = @"Christian Ponder";
     testProp.detail = @"Over/under 25 total passing yards";
     testProp.yays = [NSMutableArray new];
     testProp.nays = [NSMutableArray new];
@@ -90,7 +94,7 @@
     [_propBetsArray addObject:testProp];
     
     testProp = [PropBet new];
-    testProp.title = @"TDs in the 2nd quarter";
+    testProp.title = @"TDs in 2nd";
     testProp.detail = @"2 or more TDs in the 2nd quarter?";
     testProp.yays = [NSMutableArray new];
     testProp.nays = [NSMutableArray new];
@@ -104,8 +108,8 @@
     [_propBetsArray addObject:testProp];
     
     testProp = [PropBet new];
-    testProp.title = @"How many Coors Light commercials will be played?";
-    testProp.detail = @"7 or more?";
+    testProp.title = @"Coors light";
+    testProp.detail = @"7 or more coors light commercials?";
     testProp.yays = [NSMutableArray new];
     testProp.nays = [NSMutableArray new];
     [_propBetsArray addObject:testProp];
@@ -131,7 +135,26 @@
 {
     [super viewWillAppear:YES];
     [propTableView reloadData];
-    NSLog(@"%i",_propBetsArray.count);
+    if (_isGameOn)
+    {
+        newPropBetButton.alpha = 0.0;
+    }
+}
+
+- (IBAction)gameOnPressed:(id)sender
+{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Game On!" message:@"Ready to lock in all the players and bets?" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Lock 'em in", nil];
+    [alert show];
+}
+
+-(void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 1) {
+        _isGameOn = YES;
+        gameOnButton.alpha = 0.0;
+        goodLuckLabel.alpha = 1.0;
+        newPropBetButton.alpha = 0.0;
+    }
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -145,6 +168,7 @@
         PlayerListViewController *vc = segue.destinationViewController;
         vc.playersArray = self.playersArray;
         vc.propBetsArray = self.propBetsArray;
+        vc.isGameOn = _isGameOn;
     } else if ([segue.identifier isEqualToString:@"PropBetSegue"])
     {
         PropBetViewController *vc = segue.destinationViewController;
@@ -152,13 +176,9 @@
         NSIndexPath *indexPath = [propTableView indexPathForSelectedRow];
         vc.propBet = [_propBetsArray objectAtIndex:indexPath.row];
         vc.navigationItem.title = vc.propBet.title;
+        vc.isGameOn = _isGameOn;
     }
 }
-
-
-
-
-
 
 #pragma mark UITableViewDelegate & DataSource
 
@@ -180,10 +200,13 @@
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (editingStyle == UITableViewCellEditingStyleDelete)
+    if (_isGameOn == NO)
     {
-        [_propBetsArray removeObjectAtIndex:indexPath.row];
-        [propTableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+        if (editingStyle == UITableViewCellEditingStyleDelete)
+        {
+            [_propBetsArray removeObjectAtIndex:indexPath.row];
+            [propTableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+        }
     }
 }
 

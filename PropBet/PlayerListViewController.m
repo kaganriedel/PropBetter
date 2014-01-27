@@ -30,15 +30,25 @@
 
 - (IBAction)onAddPlayerButtonPressed:(id)sender
 {
-    NSString *trimmedString = [playerTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
-    if ([trimmedString isEqualToString:@""] == NO)
+    if (_isGameOn == YES)
     {
-        Player *player = [Player new];
-        player.name = trimmedString;
-        [_playersArray addObject:player];
-        [playerTableView reloadData];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Nope" message:@"The games have already begun!" delegate:nil cancelButtonTitle:@"Cancel" otherButtonTitles: nil];
+        [alert show];
         playerTextField.text = @"";
         [playerTextField resignFirstResponder];
+    }
+    else
+    {
+        NSString *trimmedString = [playerTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+        if ([trimmedString isEqualToString:@""] == NO)
+        {
+            Player *player = [Player new];
+            player.name = trimmedString;
+            [_playersArray addObject:player];
+            [playerTableView reloadData];
+            playerTextField.text = @"";
+            [playerTextField resignFirstResponder];
+        }
     }
 }
 
@@ -51,9 +61,8 @@
     vc.player = _playersArray[indexPath.row];
     UITableViewCell *cell = [playerTableView cellForRowAtIndexPath:indexPath];
     vc.navigationItem.title = cell.textLabel.text;
+    vc.isGameOn = _isGameOn;
 }
-
-
 
 #pragma mark UITableViewDelegate & DataSource
 
@@ -74,10 +83,13 @@
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (editingStyle == UITableViewCellEditingStyleDelete)
+    if (_isGameOn == NO)
     {
-        [_playersArray removeObjectAtIndex:indexPath.row];
-        [playerTableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+        if (editingStyle == UITableViewCellEditingStyleDelete)
+        {
+            [_playersArray removeObjectAtIndex:indexPath.row];
+            [playerTableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+        }
     }
 }
 

@@ -14,14 +14,11 @@
     __weak IBOutlet UILabel *detailsLabel;
     __weak IBOutlet UITableView *playersTableView;
     __weak IBOutlet UIButton *winnerButton;
-    
 }
 
 @end
 
 @implementation PropBetViewController
-
-
 
 - (void)viewDidLoad
 {
@@ -46,33 +43,46 @@
     {
         winnerButton.userInteractionEnabled = YES;
     }
+    
     else if (buttonIndex == 1) //Over
     {
+        _propBet.hasBeenCalculated = YES;
+
         for (Player *player in _propBet.yays)
         {
             player.score++;
         }
-        _propBet.hasBeenCalculated = YES;
-
+        for (UITableViewCell *cell in playersTableView.visibleCells)
+        {
+            if (cell.imageView.image == [UIImage imageNamed:@"ThumbsUpButton.jpg"]) {
+                cell.backgroundColor = [UIColor colorWithRed:0.0 green:0.65 blue:0.99 alpha:1.0];
+            }
+        }
     }
+    
     else if (buttonIndex == 2) //Under
     {
+        _propBet.hasBeenCalculated = YES;
+
         for (Player *player in _propBet.nays)
         {
             player.score++;
         }
-        _propBet.hasBeenCalculated = YES;
+        for (UITableViewCell *cell in playersTableView.visibleCells)
+        {
+            if (cell.imageView.image == [UIImage imageNamed:@"ThumbsDownButton.jpg"]) {
+                cell.backgroundColor = [UIColor colorWithRed:0.0 green:0.65 blue:0.99 alpha:1.0];
+            }
+        }
     }
 }
 
-// iterate through propBets yays checking for players. for all the players that won, add 1 point.
 
 #pragma mark UITableViewDelegate & DataSource
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return _playerArray.count;
-   
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -81,13 +91,16 @@
     Player *player = [Player new];
     player = [_playerArray objectAtIndex:indexPath.row];
     cell.textLabel.text = player.name;
+    
     if ([_propBet.yays containsObject:player])
     {
         cell.imageView.image = [UIImage imageNamed:@"ThumbsUpButton.jpg"];
-    } else if ([_propBet.nays containsObject:player])
+    }
+    else if ([_propBet.nays containsObject:player])
     {
         cell.imageView.image = [UIImage imageNamed:@"ThumbsDownButton.jpg"];
-    } else
+    }
+    else
     {
         cell.imageView.image = nil;
     }

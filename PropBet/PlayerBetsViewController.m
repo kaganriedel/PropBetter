@@ -28,23 +28,26 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if ([tableView cellForRowAtIndexPath:indexPath].imageView.image == nil)
+    if (_isGameOn == NO)
     {
-        PropBet *propBet = _propBetsArray[indexPath.row];
-        [propBet.yays addObject:_player];
+        if ([tableView cellForRowAtIndexPath:indexPath].imageView.image == nil)
+        {
+            PropBet *propBet = _propBetsArray[indexPath.row];
+            [propBet.yays addObject:_player];
+        }
+        else if ([tableView cellForRowAtIndexPath:indexPath].imageView.image == [UIImage imageNamed:@"ThumbsUpButton.jpg"])
+        {
+            PropBet *propBet = _propBetsArray[indexPath.row];
+            [propBet.yays removeObject:_player];
+            [propBet.nays addObject:_player];
+        }
+        else if ([tableView cellForRowAtIndexPath:indexPath].imageView.image == [UIImage imageNamed:@"ThumbsDownButton.jpg"])
+        {
+            PropBet *propBet = _propBetsArray[indexPath.row];
+            [propBet.nays removeObject:_player];
+        }
+        [tableView reloadData];
     }
-    else if ([tableView cellForRowAtIndexPath:indexPath].imageView.image == [UIImage imageNamed:@"ThumbsUpButton.jpg"])
-    {
-        PropBet *propBet = _propBetsArray[indexPath.row];
-        [propBet.yays removeObject:_player];
-        [propBet.nays addObject:_player];
-    }
-    else if ([tableView cellForRowAtIndexPath:indexPath].imageView.image == [UIImage imageNamed:@"ThumbsDownButton.jpg"])
-    {
-        PropBet *propBet = _propBetsArray[indexPath.row];
-        [propBet.nays removeObject:_player];
-    }
-    [tableView reloadData];
 }
 
 
@@ -58,10 +61,12 @@
     if ([propBet.yays containsObject:_player])
     {
         cell.imageView.image = [UIImage imageNamed:@"ThumbsUpButton.jpg"];
-    } else if ([propBet.nays containsObject:_player])
+    }
+    else if ([propBet.nays containsObject:_player])
     {
         cell.imageView.image = [UIImage imageNamed:@"ThumbsDownButton.jpg"];
-    } else
+    }
+    else
     {
         cell.imageView.image = nil;
     }

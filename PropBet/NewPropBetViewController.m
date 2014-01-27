@@ -34,11 +34,13 @@
         detailTextField.text = detailTrimmedString;
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Looks good" message:@"Should I save it?" delegate:self cancelButtonTitle:@"Hold up a sec" otherButtonTitles:@"Yup", nil];
         [alert show];
-           } else if ([propTrimmedString isEqualToString:@""] == YES) //if the propTestField is empty, alert the user
+    }
+    else if ([propTrimmedString isEqualToString:@""] == YES) //if the propTestField is empty, alert the user
     {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Give it a name!" message:@"What's the bet name?" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alert show];
-    } else if ([detailTrimmedString isEqualToString:@""] == YES)
+    }
+    else if ([detailTrimmedString isEqualToString:@""] == YES)
     {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Tell me more!" message:@"What are the details?" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alert show];

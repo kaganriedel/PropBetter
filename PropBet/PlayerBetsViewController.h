@@ -13,5 +13,6 @@
 
 @property NSMutableArray *propBetsArray;
 @property Player *player;
+@property BOOL isGameOn;
 
 @end
