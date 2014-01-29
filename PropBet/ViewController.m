@@ -30,6 +30,7 @@
 {
     [super viewDidLoad];
     
+
     
     _playersArray = [NSMutableArray new];
     
@@ -140,6 +141,26 @@
         newPropBetButton.alpha = 0.0;
     }
 }
+
+//-(void) save
+//{
+//    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+//    [userDefaults setObject:_playersArray forKey:@"playersArray"];
+//    [userDefaults setObject:_propBetsArray forKey:@"propBetsArray"];
+//    [userDefaults setBool:_isGameOn forKey:@"isGameOn"];
+//
+//    [userDefaults synchronize];
+//}
+//
+//-(void) load
+//{
+//    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+//    _playersArray = [userDefaults objectForKey:@"playersArray"] ?: [NSMutableArray new];
+//    _propBetsArray = [userDefaults objectForKey:@"propBetsArray"] ?: [NSMutableArray new];
+//    _isGameOn = [userDefaults boolForKey:@"isGameOn"];
+//}
+
+
 
 - (IBAction)gameOnPressed:(id)sender
 {

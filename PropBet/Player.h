@@ -11,8 +11,6 @@
 @interface Player : NSObject
 
 @property NSString *name;
-@property NSString *nickname;
-@property UIColor *color;
 @property int score;
 
 @end

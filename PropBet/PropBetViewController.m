@@ -71,7 +71,7 @@
         for (UITableViewCell *cell in playersTableView.visibleCells)
         {
             if (cell.imageView.image == [UIImage imageNamed:@"ThumbsDownButton.jpg"]) {
-                cell.backgroundColor = [UIColor colorWithRed:0.0 green:0.65 blue:0.99 alpha:1.0];
+                cell.backgroundColor = [UIColor colorWithRed:0.0 green:0.65 blue:0.90 alpha:1.0];
             }
         }
     }

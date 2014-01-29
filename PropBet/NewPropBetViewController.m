@@ -47,6 +47,7 @@
     }
 }
 
+
 #pragma mark UIAlertViewDelegate
 
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
@@ -62,6 +63,8 @@
         [detailTextField resignFirstResponder];
         propTextField.text = @"";
         detailTextField.text = @"";
+        
+
     }
 }
 
