@@ -11,7 +11,6 @@
 
 @interface PropBetViewController : UIViewController
 
-@property NSMutableArray *playerArray;
 @property PropBet *propBet;
 @property BOOL isGameOn;
 

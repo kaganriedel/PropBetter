@@ -11,6 +11,5 @@
 
 @interface NewPropBetViewController : UIViewController
 
-@property NSMutableArray *propBetArray;
 
 @end

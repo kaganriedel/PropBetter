@@ -13,6 +13,10 @@
 		6D2DD168188E3D16007EA936 /* ThumbsUpButton.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6D2DD167188E3D16007EA936 /* ThumbsUpButton.jpg */; };
 		6D2DD16C188E4496007EA936 /* ThumbsDownButton.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6D2DD16B188E4496007EA936 /* ThumbsDownButton.jpg */; };
 		6D58D0D7189600EB00A47E5D /* PlayerBetsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D58D0D6189600EB00A47E5D /* PlayerBetsViewController.m */; };
+		6D5DBB83189DE022005D4C1C /* libTestFlight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D5DBB7D189DE022005D4C1C /* libTestFlight.a */; };
+		6D5DBB84189DE022005D4C1C /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 6D5DBB7E189DE022005D4C1C /* README.md */; };
+		6D5DBB85189DE022005D4C1C /* release_notes.md in Resources */ = {isa = PBXBuildFile; fileRef = 6D5DBB7F189DE022005D4C1C /* release_notes.md */; };
+		6D5DBB87189DE069005D4C1C /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D5DBB86189DE069005D4C1C /* libz.dylib */; };
 		6D748F51188B920C00DC5FFC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D748F50188B920C00DC5FFC /* Foundation.framework */; };
 		6D748F53188B920C00DC5FFC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D748F52188B920C00DC5FFC /* CoreGraphics.framework */; };
 		6D748F55188B920C00DC5FFC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D748F54188B920C00DC5FFC /* UIKit.framework */; };
@@ -20,7 +24,7 @@
 		6D748F5D188B920C00DC5FFC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D748F5C188B920C00DC5FFC /* main.m */; };
 		6D748F61188B920C00DC5FFC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D748F60188B920C00DC5FFC /* AppDelegate.m */; };
 		6D748F64188B920C00DC5FFC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6D748F62188B920C00DC5FFC /* Main.storyboard */; };
-		6D748F67188B920C00DC5FFC /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D748F66188B920C00DC5FFC /* ViewController.m */; };
+		6D748F67188B920C00DC5FFC /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D748F66188B920C00DC5FFC /* MasterViewController.m */; };
 		6D748F69188B920C00DC5FFC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6D748F68188B920C00DC5FFC /* Images.xcassets */; };
 		6D748F70188B920C00DC5FFC /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D748F6F188B920C00DC5FFC /* XCTest.framework */; };
 		6D748F71188B920C00DC5FFC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D748F50188B920C00DC5FFC /* Foundation.framework */; };
@@ -28,9 +32,13 @@
 		6D748F7A188B920C00DC5FFC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6D748F78188B920C00DC5FFC /* InfoPlist.strings */; };
 		6D748F7C188B920C00DC5FFC /* PropBetTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D748F7B188B920C00DC5FFC /* PropBetTests.m */; };
 		6D748F86188B924300DC5FFC /* NFL.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6D748F85188B924300DC5FFC /* NFL.jpg */; };
-		6D748F8A188B926100DC5FFC /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D748F89188B926100DC5FFC /* Player.m */; };
-		6D748F8D188B926B00DC5FFC /* PropBet.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D748F8C188B926B00DC5FFC /* PropBet.m */; };
 		6D748F90188B927D00DC5FFC /* NewPropBetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D748F8F188B927D00DC5FFC /* NewPropBetViewController.m */; };
+		6DD8EC8E189D58EE00362D6F /* ThumbsDownButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 6DD8EC8D189D58EE00362D6F /* ThumbsDownButton.png */; };
+		6DD8EC90189D58FB00362D6F /* ThumbsUpButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 6DD8EC8F189D58FB00362D6F /* ThumbsUpButton.png */; };
+		6DD8EC92189D593000362D6F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DD8EC91189D593000362D6F /* CoreData.framework */; };
+		6DD8EC9E189D5B2700362D6F /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DD8EC9D189D5B2700362D6F /* Player.m */; };
+		6DD8ECA1189D5B6300362D6F /* PropBet.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DD8ECA0189D5B6300362D6F /* PropBet.m */; };
+		6DD9C89F189DB2A8004308FA /* NFL.png in Resources */ = {isa = PBXBuildFile; fileRef = 6DD9C89E189DB2A8004308FA /* NFL.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +61,13 @@
 		6D2DD16B188E4496007EA936 /* ThumbsDownButton.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ThumbsDownButton.jpg; sourceTree = "<group>"; };
 		6D58D0D5189600EB00A47E5D /* PlayerBetsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerBetsViewController.h; sourceTree = "<group>"; };
 		6D58D0D6189600EB00A47E5D /* PlayerBetsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerBetsViewController.m; sourceTree = "<group>"; };
+		6D5DBB7D189DE022005D4C1C /* libTestFlight.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libTestFlight.a; sourceTree = "<group>"; };
+		6D5DBB7E189DE022005D4C1C /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		6D5DBB7F189DE022005D4C1C /* release_notes.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = release_notes.md; sourceTree = "<group>"; };
+		6D5DBB80189DE022005D4C1C /* TestFlight+AsyncLogging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+AsyncLogging.h"; sourceTree = "<group>"; };
+		6D5DBB81189DE022005D4C1C /* TestFlight+ManualSessions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TestFlight+ManualSessions.h"; sourceTree = "<group>"; };
+		6D5DBB82189DE022005D4C1C /* TestFlight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestFlight.h; sourceTree = "<group>"; };
+		6D5DBB86189DE069005D4C1C /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		6D748F4D188B920C00DC5FFC /* PropBet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PropBet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D748F50188B920C00DC5FFC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6D748F52188B920C00DC5FFC /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -64,8 +79,8 @@
 		6D748F5F188B920C00DC5FFC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		6D748F60188B920C00DC5FFC /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		6D748F63188B920C00DC5FFC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		6D748F65188B920C00DC5FFC /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		6D748F66188B920C00DC5FFC /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		6D748F65188B920C00DC5FFC /* MasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
+		6D748F66188B920C00DC5FFC /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
 		6D748F68188B920C00DC5FFC /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		6D748F6E188B920C00DC5FFC /* PropBetTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PropBetTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D748F6F188B920C00DC5FFC /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -73,12 +88,16 @@
 		6D748F79188B920C00DC5FFC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6D748F7B188B920C00DC5FFC /* PropBetTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PropBetTests.m; sourceTree = "<group>"; };
 		6D748F85188B924300DC5FFC /* NFL.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = NFL.jpg; sourceTree = "<group>"; };
-		6D748F88188B926100DC5FFC /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
-		6D748F89188B926100DC5FFC /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
-		6D748F8B188B926B00DC5FFC /* PropBet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PropBet.h; sourceTree = "<group>"; };
-		6D748F8C188B926B00DC5FFC /* PropBet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PropBet.m; sourceTree = "<group>"; };
 		6D748F8E188B927D00DC5FFC /* NewPropBetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewPropBetViewController.h; sourceTree = "<group>"; };
 		6D748F8F188B927D00DC5FFC /* NewPropBetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewPropBetViewController.m; sourceTree = "<group>"; };
+		6DD8EC8D189D58EE00362D6F /* ThumbsDownButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ThumbsDownButton.png; sourceTree = "<group>"; };
+		6DD8EC8F189D58FB00362D6F /* ThumbsUpButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ThumbsUpButton.png; sourceTree = "<group>"; };
+		6DD8EC91189D593000362D6F /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		6DD8EC9C189D5B2700362D6F /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
+		6DD8EC9D189D5B2700362D6F /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
+		6DD8EC9F189D5B6300362D6F /* PropBet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PropBet.h; sourceTree = "<group>"; };
+		6DD8ECA0189D5B6300362D6F /* PropBet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PropBet.m; sourceTree = "<group>"; };
+		6DD9C89E189DB2A8004308FA /* NFL.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NFL.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +105,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6D5DBB87189DE069005D4C1C /* libz.dylib in Frameworks */,
+				6D5DBB83189DE022005D4C1C /* libTestFlight.a in Frameworks */,
+				6DD8EC92189D593000362D6F /* CoreData.framework in Frameworks */,
 				6D748F53188B920C00DC5FFC /* CoreGraphics.framework in Frameworks */,
 				6D748F55188B920C00DC5FFC /* UIKit.framework in Frameworks */,
 				6D748F51188B920C00DC5FFC /* Foundation.framework in Frameworks */,
@@ -105,6 +127,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6D5DBB7C189DE022005D4C1C /* TestFlightSDK2 */ = {
+			isa = PBXGroup;
+			children = (
+				6D5DBB7D189DE022005D4C1C /* libTestFlight.a */,
+				6D5DBB7E189DE022005D4C1C /* README.md */,
+				6D5DBB7F189DE022005D4C1C /* release_notes.md */,
+				6D5DBB80189DE022005D4C1C /* TestFlight+AsyncLogging.h */,
+				6D5DBB81189DE022005D4C1C /* TestFlight+ManualSessions.h */,
+				6D5DBB82189DE022005D4C1C /* TestFlight.h */,
+			);
+			path = TestFlightSDK2;
+			sourceTree = "<group>";
+		};
 		6D748F44188B920C00DC5FFC = {
 			isa = PBXGroup;
 			children = (
@@ -112,6 +147,7 @@
 				6D748F75188B920C00DC5FFC /* PropBetTests */,
 				6D748F4F188B920C00DC5FFC /* Frameworks */,
 				6D748F4E188B920C00DC5FFC /* Products */,
+				6D5DBB7C189DE022005D4C1C /* TestFlightSDK2 */,
 			);
 			sourceTree = "<group>";
 		};
@@ -127,6 +163,8 @@
 		6D748F4F188B920C00DC5FFC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6D5DBB86189DE069005D4C1C /* libz.dylib */,
+				6DD8EC91189D593000362D6F /* CoreData.framework */,
 				6D748F50188B920C00DC5FFC /* Foundation.framework */,
 				6D748F52188B920C00DC5FFC /* CoreGraphics.framework */,
 				6D748F54188B920C00DC5FFC /* UIKit.framework */,
@@ -141,8 +179,8 @@
 				6D748F62188B920C00DC5FFC /* Main.storyboard */,
 				6D748F5F188B920C00DC5FFC /* AppDelegate.h */,
 				6D748F60188B920C00DC5FFC /* AppDelegate.m */,
-				6D748F65188B920C00DC5FFC /* ViewController.h */,
-				6D748F66188B920C00DC5FFC /* ViewController.m */,
+				6D748F65188B920C00DC5FFC /* MasterViewController.h */,
+				6D748F66188B920C00DC5FFC /* MasterViewController.m */,
 				6D748F8E188B927D00DC5FFC /* NewPropBetViewController.h */,
 				6D748F8F188B927D00DC5FFC /* NewPropBetViewController.m */,
 				6D2DD161188E2A72007EA936 /* PlayerListViewController.h */,
@@ -151,11 +189,11 @@
 				6D58D0D6189600EB00A47E5D /* PlayerBetsViewController.m */,
 				6D2DD164188E36AF007EA936 /* PropBetViewController.h */,
 				6D2DD165188E36AF007EA936 /* PropBetViewController.m */,
-				6D748F88188B926100DC5FFC /* Player.h */,
-				6D748F89188B926100DC5FFC /* Player.m */,
-				6D748F8B188B926B00DC5FFC /* PropBet.h */,
-				6D748F8C188B926B00DC5FFC /* PropBet.m */,
 				6D27A43F189987C200A339A3 /* PropBetModel.xcdatamodeld */,
+				6DD8EC9F189D5B6300362D6F /* PropBet.h */,
+				6DD8ECA0189D5B6300362D6F /* PropBet.m */,
+				6DD8EC9C189D5B2700362D6F /* Player.h */,
+				6DD8EC9D189D5B2700362D6F /* Player.m */,
 				6D748F87188B924B00DC5FFC /* Images */,
 				6D748F68188B920C00DC5FFC /* Images.xcassets */,
 				6D748F57188B920C00DC5FFC /* Supporting Files */,
@@ -195,9 +233,12 @@
 		6D748F87188B924B00DC5FFC /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				6DD8EC8D189D58EE00362D6F /* ThumbsDownButton.png */,
+				6DD8EC8F189D58FB00362D6F /* ThumbsUpButton.png */,
 				6D2DD167188E3D16007EA936 /* ThumbsUpButton.jpg */,
 				6D2DD16B188E4496007EA936 /* ThumbsDownButton.jpg */,
 				6D748F85188B924300DC5FFC /* NFL.jpg */,
+				6DD9C89E189DB2A8004308FA /* NFL.png */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -249,6 +290,9 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Kagan Riedel";
 				TargetAttributes = {
+					6D748F4C188B920C00DC5FFC = {
+						DevelopmentTeam = K67R3SLFMD;
+					};
 					6D748F6D188B920C00DC5FFC = {
 						TestTargetID = 6D748F4C188B920C00DC5FFC;
 					};
@@ -279,9 +323,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				6D2DD16C188E4496007EA936 /* ThumbsDownButton.jpg in Resources */,
+				6DD8EC90189D58FB00362D6F /* ThumbsUpButton.png in Resources */,
+				6D5DBB84189DE022005D4C1C /* README.md in Resources */,
+				6DD8EC8E189D58EE00362D6F /* ThumbsDownButton.png in Resources */,
+				6D5DBB85189DE022005D4C1C /* release_notes.md in Resources */,
 				6D748F69188B920C00DC5FFC /* Images.xcassets in Resources */,
 				6D2DD168188E3D16007EA936 /* ThumbsUpButton.jpg in Resources */,
 				6D748F5B188B920C00DC5FFC /* InfoPlist.strings in Resources */,
+				6DD9C89F189DB2A8004308FA /* NFL.png in Resources */,
 				6D748F86188B924300DC5FFC /* NFL.jpg in Resources */,
 				6D748F64188B920C00DC5FFC /* Main.storyboard in Resources */,
 			);
@@ -304,11 +353,11 @@
 			files = (
 				6D2DD163188E2A72007EA936 /* PlayerListViewController.m in Sources */,
 				6D748F90188B927D00DC5FFC /* NewPropBetViewController.m in Sources */,
-				6D748F8A188B926100DC5FFC /* Player.m in Sources */,
-				6D748F8D188B926B00DC5FFC /* PropBet.m in Sources */,
-				6D748F67188B920C00DC5FFC /* ViewController.m in Sources */,
+				6D748F67188B920C00DC5FFC /* MasterViewController.m in Sources */,
 				6D2DD166188E36AF007EA936 /* PropBetViewController.m in Sources */,
+				6DD8EC9E189D5B2700362D6F /* Player.m in Sources */,
 				6D748F61188B920C00DC5FFC /* AppDelegate.m in Sources */,
+				6DD8ECA1189D5B6300362D6F /* PropBet.m in Sources */,
 				6D748F5D188B920C00DC5FFC /* main.m in Sources */,
 				6D27A441189987C200A339A3 /* PropBetModel.xcdatamodeld in Sources */,
 				6D58D0D7189600EB00A47E5D /* PlayerBetsViewController.m in Sources */,
@@ -438,10 +487,18 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PropBet/PropBet-Prefix.pch";
 				INFOPLIST_FILE = "PropBet/PropBet-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/kaganriedel/Development/PropBet/TestFlightSDK2,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -451,10 +508,18 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PropBet/PropBet-Prefix.pch";
 				INFOPLIST_FILE = "PropBet/PropBet-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/kaganriedel/Development/PropBet/TestFlightSDK2,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

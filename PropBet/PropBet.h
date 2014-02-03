@@ -2,18 +2,34 @@
 //  PropBet.h
 //  PropBet
 //
-//  Created by Kagan Riedel on 1/18/14.
+//  Created by Kagan Riedel on 2/1/14.
 //  Copyright (c) 2014 Kagan Riedel. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
 
-@interface PropBet : NSObject
+@class Player;
 
-@property NSString *title;
-@property NSString *detail;
-@property NSMutableArray *yays;
-@property NSMutableArray *nays;
-@property BOOL hasBeenCalculated;
+@interface PropBet : NSManagedObject
+
+@property (nonatomic, retain) NSString * title;
+@property (nonatomic, retain) NSString * detail;
+@property (nonatomic, retain) NSNumber * hasBeenCalculated;
+@property (nonatomic, retain) NSSet *nays;
+@property (nonatomic, retain) NSSet *yays;
+@end
+
+@interface PropBet (CoreDataGeneratedAccessors)
+
+- (void)addNaysObject:(Player *)value;
+- (void)removeNaysObject:(Player *)value;
+- (void)addNays:(NSSet *)values;
+- (void)removeNays:(NSSet *)values;
+
+- (void)addYaysObject:(Player *)value;
+- (void)removeYaysObject:(Player *)value;
+- (void)addYays:(NSSet *)values;
+- (void)removeYays:(NSSet *)values;
 
 @end

@@ -9,12 +9,14 @@
 #import "PlayerListViewController.h"
 #import "PlayerBetsViewController.h"
 #import "Player.h"
+#import "AppDelegate.h"
 
-@interface PlayerListViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface PlayerListViewController () <UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate>
 {
     __weak IBOutlet UITextField *playerTextField;
     __weak IBOutlet UITableView *playerTableView;
-    
+    NSManagedObjectContext *managedObjectContext;
+    NSFetchedResultsController *fetchedResultsController;
 }
 
 @end
@@ -26,6 +28,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    managedObjectContext = ((AppDelegate*)[UIApplication sharedApplication].delegate).managedObjectContext;
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Player"];
+    fetchRequest.sortDescriptors = @[[[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES selector:@selector(caseInsensitiveCompare:)]];
+    
+    fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:managedObjectContext sectionNameKeyPath:nil cacheName:@"playercache"];
+    fetchedResultsController.delegate = self;
+    [fetchedResultsController performFetch:nil];
+
 }
 
 - (IBAction)onAddPlayerButtonPressed:(id)sender
@@ -42,25 +53,45 @@
         NSString *trimmedString = [playerTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
         if ([trimmedString isEqualToString:@""] == NO)
         {
-            Player *player = [Player new];
+            Player *player = [NSEntityDescription insertNewObjectForEntityForName:@"Player" inManagedObjectContext:managedObjectContext];
             player.name = trimmedString;
-            [_playersArray addObject:player];
-            [playerTableView reloadData];
+            [managedObjectContext save:nil];
+            
             playerTextField.text = @"";
             [playerTextField resignFirstResponder];
         }
     }
 }
 
+-(void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type newIndexPath:(NSIndexPath *)newIndexPath
+{
+    [fetchedResultsController performFetch:nil];
+    
+    switch (type) {
+        case NSFetchedResultsChangeInsert:
+            [playerTableView insertRowsAtIndexPaths:@[newIndexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+            break;
+            
+        case NSFetchedResultsChangeUpdate:
+            [playerTableView reloadRowsAtIndexPaths:@[newIndexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+            break;
+            
+        case NSFetchedResultsChangeDelete:
+            [playerTableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+            //Note: This line uses indexPath, not newIndexPath
+            break;
+        default:
+            break;
+    }
+}
+
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     PlayerBetsViewController *vc = segue.destinationViewController;
-    vc.propBetsArray = _propBetsArray;
     
     NSIndexPath *indexPath = [playerTableView indexPathForSelectedRow];
-    vc.player = _playersArray[indexPath.row];
-    UITableViewCell *cell = [playerTableView cellForRowAtIndexPath:indexPath];
-    vc.navigationItem.title = cell.textLabel.text;
+    vc.player = fetchedResultsController.fetchedObjects[indexPath.row];
+    vc.navigationItem.title = vc.player.name;
     vc.isGameOn = _isGameOn;
 }
 
@@ -69,16 +100,16 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PlayerCell"];
-    Player *player = [_playersArray objectAtIndex:indexPath.row];
+    Player *player = fetchedResultsController.fetchedObjects[indexPath.row];
     cell.textLabel.text = player.name;
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"Score: %i", player.score];
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"Score: %i", player.score.intValue];
     
     return cell;
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return _playersArray.count;
+    return fetchedResultsController.fetchedObjects.count;
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
@@ -87,8 +118,9 @@
     {
         if (editingStyle == UITableViewCellEditingStyleDelete)
         {
-            [_playersArray removeObjectAtIndex:indexPath.row];
-            [playerTableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+            Player *player = fetchedResultsController.fetchedObjects[indexPath.row];
+            [managedObjectContext deleteObject:player];
+            [managedObjectContext save:nil];
         }
     }
 }

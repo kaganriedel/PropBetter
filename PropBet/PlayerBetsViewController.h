@@ -11,7 +11,6 @@
 
 @interface PlayerBetsViewController : UIViewController
 
-@property NSMutableArray *propBetsArray;
 @property Player *player;
 @property BOOL isGameOn;
 

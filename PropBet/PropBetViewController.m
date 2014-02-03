@@ -8,12 +8,16 @@
 
 #import "PropBetViewController.h"
 #import "Player.h"
+#import "AppDelegate.h"
 
 @interface PropBetViewController () <UITableViewDelegate, UITableViewDataSource, UIAlertViewDelegate>
 {
     __weak IBOutlet UILabel *detailsLabel;
     __weak IBOutlet UITableView *playersTableView;
     __weak IBOutlet UIButton *winnerButton;
+    
+    NSManagedObjectContext *managedObjectContext;
+    NSFetchedResultsController *fetchedResultsController;
 }
 
 @end
@@ -23,11 +27,24 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    managedObjectContext = ((AppDelegate*)[UIApplication sharedApplication].delegate).managedObjectContext;
+
 	detailsLabel.text = _propBet.detail;
-    if (_propBet.hasBeenCalculated == YES)
+    
+    managedObjectContext = ((AppDelegate*)[UIApplication sharedApplication].delegate).managedObjectContext;
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Player"];
+    fetchRequest.sortDescriptors = @[[[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES]];
+    
+    fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:managedObjectContext sectionNameKeyPath:nil cacheName:@"playercache"];
+    
+    [fetchedResultsController performFetch:nil];
+
+    if (_propBet.hasBeenCalculated.boolValue == YES)
     {
         winnerButton.userInteractionEnabled = NO;
     }
+    
 }
 
 - (IBAction)onWinnerButtonPressed:(id)sender
@@ -46,15 +63,15 @@
     
     else if (buttonIndex == 1) //Over
     {
-        _propBet.hasBeenCalculated = YES;
+        _propBet.hasBeenCalculated = @YES;
 
         for (Player *player in _propBet.yays)
         {
-            player.score++;
+            player.score = [NSNumber numberWithInt: player.score.intValue + 1];
         }
         for (UITableViewCell *cell in playersTableView.visibleCells)
         {
-            if (cell.imageView.image == [UIImage imageNamed:@"ThumbsUpButton.jpg"]) {
+            if (cell.imageView.image == [UIImage imageNamed:@"ThumbsUpButton.png"]) {
                 cell.backgroundColor = [UIColor colorWithRed:0.0 green:0.65 blue:0.99 alpha:1.0];
             }
         }
@@ -62,15 +79,15 @@
     
     else if (buttonIndex == 2) //Under
     {
-        _propBet.hasBeenCalculated = YES;
+        _propBet.hasBeenCalculated = @YES;
 
         for (Player *player in _propBet.nays)
         {
-            player.score++;
+            player.score = [NSNumber numberWithInt: player.score.intValue + 1];
         }
         for (UITableViewCell *cell in playersTableView.visibleCells)
         {
-            if (cell.imageView.image == [UIImage imageNamed:@"ThumbsDownButton.jpg"]) {
+            if (cell.imageView.image == [UIImage imageNamed:@"ThumbsDownButton.png"]) {
                 cell.backgroundColor = [UIColor colorWithRed:0.0 green:0.65 blue:0.90 alpha:1.0];
             }
         }
@@ -82,23 +99,22 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return _playerArray.count;
+    return fetchedResultsController.fetchedObjects.count;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PlayerCell"];
-    Player *player = [Player new];
-    player = [_playerArray objectAtIndex:indexPath.row];
+    Player *player = [fetchedResultsController.fetchedObjects objectAtIndex:indexPath.row];
     cell.textLabel.text = player.name;
     
     if ([_propBet.yays containsObject:player])
     {
-        cell.imageView.image = [UIImage imageNamed:@"ThumbsUpButton.jpg"];
+        cell.imageView.image = [UIImage imageNamed:@"ThumbsUpButton.png"];
     }
     else if ([_propBet.nays containsObject:player])
     {
-        cell.imageView.image = [UIImage imageNamed:@"ThumbsDownButton.jpg"];
+        cell.imageView.image = [UIImage imageNamed:@"ThumbsDownButton.png"];
     }
     else
     {
